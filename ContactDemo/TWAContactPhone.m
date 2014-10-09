@@ -13,8 +13,4 @@
 
 @implementation TWAContactPhone
 
-@synthesize work = _work;
-@synthesize home = _home;
-@synthesize mobile = _mobile;
-
 @end

@@ -11,14 +11,10 @@
 @implementation TWAContactListTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    NSLog(@"WOke up!:");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

@@ -52,7 +52,7 @@
                                     <outlet property="name" destination="tfH-j8-hxH" id="n7X-yx-fqI"/>
                                     <outlet property="phoneNumber" destination="Dgq-BB-gmu" id="kGY-yD-xKl"/>
                                     <outlet property="smallImage" destination="ugD-ng-2CU" id="tVz-mf-psZ"/>
-                                    <segue destination="qgR-cl-Jeu" kind="show" id="o9W-bN-Rs8"/>
+                                    <segue destination="qgR-cl-Jeu" kind="show" identifier="showContactDetail" id="o9W-bN-Rs8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
