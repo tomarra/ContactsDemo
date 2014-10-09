@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navBarText.title = @"Loading...";
+    self.navBarText.title = NSLocalizedString(@"ContactListLoadingTitleBar", nil);
     
     [self getContactsListFromServer];
 }
@@ -146,7 +146,7 @@
     //Once we have all the data ask the UI thread to do some updates
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
-        self.navBarText.title = @"Contacts";
+        self.navBarText.title = NSLocalizedString(@"ContactListTitleBar", nil);
         self.tableView.allowsSelection = YES;
     });
 
