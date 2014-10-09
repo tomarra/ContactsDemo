@@ -18,7 +18,6 @@
 		D1D2BBA819E5E2B300053A3C /* TWAContactListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2BBA519E5E2B300053A3C /* TWAContactListResponse.m */; };
 		D1D2BBA919E5E2B300053A3C /* TWAContactPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2BBA719E5E2B300053A3C /* TWAContactPhone.m */; };
 		D1D2BBB119E5F64A00053A3C /* TWAContactListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2BBAF19E5F64A00053A3C /* TWAContactListTableViewCell.m */; };
-		D1D2BBB419E620A300053A3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D2BBB319E620A300053A3C /* MapKit.framework */; };
 		D1FE5F0519E6BE010061EDD8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1FE5F0419E6BE010061EDD8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		D1D2BBA719E5E2B300053A3C /* TWAContactPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAContactPhone.m; sourceTree = "<group>"; };
 		D1D2BBAE19E5F64A00053A3C /* TWAContactListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWAContactListTableViewCell.h; sourceTree = "<group>"; };
 		D1D2BBAF19E5F64A00053A3C /* TWAContactListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAContactListTableViewCell.m; sourceTree = "<group>"; };
-		D1D2BBB319E620A300053A3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D1FE5F0419E6BE010061EDD8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D2BBB419E620A300053A3C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +77,6 @@
 		D1D2BB6419E5E06700053A3C = {
 			isa = PBXGroup;
 			children = (
-				D1D2BBB319E620A300053A3C /* MapKit.framework */,
 				D1D2BB6F19E5E06700053A3C /* ContactDemo */,
 				D1D2BB8919E5E06700053A3C /* ContactDemoTests */,
 				D1D2BB6E19E5E06700053A3C /* Products */,
@@ -221,7 +217,7 @@
 						CreatedOnToolsVersion = 6.0;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};

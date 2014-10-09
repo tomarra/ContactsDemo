@@ -11,12 +11,12 @@
 
 @interface TWAContactDetailsViewController ()
 
-//Variables for use in class
+#pragma mark - Variables
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, assign) double latitude;
 @property (nonatomic, assign) double longitude;
 
-//View Items to be localized
+#pragma mark - Localized View Items
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *birthdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
-//Data View Items
+#pragma mark - Data View Items
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *companyName;
 @property (weak, nonatomic) IBOutlet UIImageView *largeImage;
@@ -112,7 +112,8 @@
 
 - (IBAction)mapButtonClicked:(id)sender {
     
-    MKPlacemark *pl = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longitude) addressDictionary:nil];
+    MKPlacemark *pl = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longitude)
+                                            addressDictionary:nil];
     MKMapItem *mi = [[MKMapItem alloc] initWithPlacemark:pl];
     mi.name = self.navigationItem.title;
     [mi openInMapsWithLaunchOptions:nil];
@@ -129,9 +130,8 @@
     
     [req setHTTPMethod:@"GET"];
     
-    NSURLSessionDataTask *dataTask =
-    [self.session dataTaskWithRequest:req
-                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
+                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                         if (error){
                             NSLog(@"General Error: %@", error.description);
                             return;
@@ -142,8 +142,8 @@
                             
                             if (statusCode == 200) {
                                 NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
-                                                                                      options:0
-                                                                                        error:nil];
+                                                                                           options:0
+                                                                                             error:nil];
                                 [self updateViewWithDetailData:jsonObject];
                                 return;
                             }
@@ -156,7 +156,9 @@
 - (void) updateViewWithDetailData:(NSDictionary *)jsonDataObject
 {
     NSString *imageUrl = jsonDataObject[@"largeImageURL"];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]]
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         self.largeImage.image = [UIImage imageWithData:data];
     }];
 

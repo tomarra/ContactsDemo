@@ -46,7 +46,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table View Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -64,7 +64,9 @@
     
     //Make the request for the image asyc so that we don't tie up the UI thread
     NSString *imageUrl = [[self.contactsArray objectAtIndex:indexPath.row] smallImageURL];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]]
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         cell.smallImage.image = [UIImage imageWithData:data];
     }];
     
@@ -96,9 +98,8 @@
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"GET"];
     
-    NSURLSessionDataTask *dataTask =
-    [self.session dataTaskWithRequest:req
-                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
+                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                         if (error){
                             NSLog(@"General Error: %@", error.description);
                             return;
