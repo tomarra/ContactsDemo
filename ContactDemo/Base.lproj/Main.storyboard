@@ -25,7 +25,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ugD-ng-2CU">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultContactSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ugD-ng-2CU">
                                             <rect key="frame" x="8" y="6" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="Uwy-xI-nPV"/>
@@ -88,7 +88,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9j9-rq-yig">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FF0-jZ-HLM">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultContactLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FF0-jZ-HLM">
                                                 <rect key="frame" x="8" y="8" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="2Gf-az-3QU"/>
@@ -314,4 +314,8 @@
             <point key="canvasLocation" x="410" y="679"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DefaultContactLarge" width="150" height="150"/>
+        <image name="DefaultContactSmall" width="60" height="60"/>
+    </resources>
 </document>
