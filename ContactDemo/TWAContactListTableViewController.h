@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TWAContactListTableViewController.h
 //  ContactDemo
 //
 //  Created by Tom Arra on 10/8/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TWAContactListTableViewController : UITableViewController
 
 @end
-
