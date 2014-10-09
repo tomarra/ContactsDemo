@@ -25,8 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mobilePhoneNumber;
 @property (weak, nonatomic) IBOutlet UILabel *mobilePhoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLineOne;
-@property (weak, nonatomic) IBOutlet UILabel *addressLine2;
-@property (weak, nonatomic) IBOutlet UILabel *brithday;
+@property (weak, nonatomic) IBOutlet UILabel *addressLineTwo;
+@property (weak, nonatomic) IBOutlet UILabel *birthday;
 @property (weak, nonatomic) IBOutlet UILabel *email;
 
 @end
@@ -54,8 +54,8 @@
     self.workPhoneNumber.text = @"";
     self.mobilePhoneNumber.text = @"";
     self.addressLineOne.text = @"";
-    self.addressLine2.text = @"";
-    self.brithday.text = @"";
+    self.addressLineTwo.text = @"";
+    self.birthday.text = @"";
     self.email.text = @"";
     
     self.nameLabel.text = self.contactListResponse.name;
@@ -69,7 +69,7 @@
     [dateFormatter setDateFormat:@"MMMM d, yyyy"];
     NSDate *birthdayDate = [NSDate dateWithTimeIntervalSince1970:[self.contactListResponse.birthdate integerValue]];
     NSString *brithdayString = [dateFormatter stringFromDate:birthdayDate];
-    self.brithday.text = brithdayString;
+    self.birthday.text = brithdayString;
     
     NSArray *nameChunks = [self.contactListResponse.name componentsSeparatedByString: @" "];
     NSString *nameForTitleBar = [NSString stringWithFormat:@"%@ %c", nameChunks[0], [nameChunks[1] characterAtIndex:0]];
@@ -132,7 +132,7 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             self.email.text = jsonObject[@"email"];
                             self.addressLineOne.text = addressObject[@"street"];
-                            self.addressLine2.text = [NSString stringWithFormat:@"%@ %@, %@", addressObject[@"city"], addressObject[@"state"], addressObject[@"zip"]];
+                            self.addressLineTwo.text = [NSString stringWithFormat:@"%@ %@, %@", addressObject[@"city"], addressObject[@"state"], addressObject[@"zip"]];
                             self.latitude = [addressObject[@"latitude"] doubleValue];
                             self.longitude = [addressObject[@"longitude"] doubleValue];
                             

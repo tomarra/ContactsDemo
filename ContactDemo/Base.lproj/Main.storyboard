@@ -278,9 +278,9 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="addressLine2" destination="hPX-tg-mdY" id="vGa-Lj-VZX"/>
                         <outlet property="addressLineOne" destination="4z9-7t-gUy" id="Phz-M3-H6H"/>
-                        <outlet property="brithday" destination="Kb7-rZ-DRm" id="ayj-Eo-vSg"/>
+                        <outlet property="addressLineTwo" destination="hPX-tg-mdY" id="51F-kd-AyR"/>
+                        <outlet property="birthday" destination="Kb7-rZ-DRm" id="tnf-8C-sPs"/>
                         <outlet property="companyNameLabel" destination="40B-4O-EB0" id="eN5-jJ-m3M"/>
                         <outlet property="email" destination="pdW-nC-rOc" id="ZNb-sv-kWZ"/>
                         <outlet property="homePhoneNumber" destination="ikc-D3-LJL" id="eCH-fO-NUJ"/>

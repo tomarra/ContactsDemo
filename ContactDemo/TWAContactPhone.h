@@ -7,16 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
-
-
-@interface TWAContactPhone : NSObject <NSCoding, NSCopying>
+@interface TWAContactPhone : NSObject
 
 @property (nonatomic, strong) NSString *work;
 @property (nonatomic, strong) NSString *home;
 @property (nonatomic, strong) NSString *mobile;
-
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-- (instancetype)initWithDictionary:(NSDictionary *)dict;
-- (NSDictionary *)dictionaryRepresentation;
 
 @end
