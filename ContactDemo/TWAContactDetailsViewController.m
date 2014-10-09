@@ -11,19 +11,30 @@
 
 @interface TWAContactDetailsViewController ()
 
+//Variables for use in class
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, assign) double latitude;
 @property (nonatomic, assign) double longitude;
 
+//View Items to be localized
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *companyNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *homePhoneNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *workPhoneNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mobilePhoneNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UIButton *mapAddressButton;
+@property (weak, nonatomic) IBOutlet UILabel *birthdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+
+//Data View Items
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *companyName;
 @property (weak, nonatomic) IBOutlet UIImageView *largeImage;
 @property (weak, nonatomic) IBOutlet UILabel *homePhoneNumber;
-@property (weak, nonatomic) IBOutlet UILabel *homePhoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *workPhoneNumber;
-@property (weak, nonatomic) IBOutlet UILabel *workPhoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mobilePhoneNumber;
-@property (weak, nonatomic) IBOutlet UILabel *mobilePhoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLineOne;
 @property (weak, nonatomic) IBOutlet UILabel *addressLineTwo;
 @property (weak, nonatomic) IBOutlet UILabel *birthday;
@@ -46,10 +57,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Set all the localized text
+    self.nameLabel.text = NSLocalizedString(@"ContactDetailNameLabel", nil);
+    self.companyLabel.text = NSLocalizedString(@"ContactDetailCompanyLabel", nil);
+    self.phoneLabel.text = NSLocalizedString(@"ContactDetailPhoneLabel", nil);
+    self.homePhoneNumberLabel.text = NSLocalizedString(@"ContactDetailHomePhoneLabel", nil);
+    self.workPhoneNumberLabel.text = NSLocalizedString(@"ContactDetailWorkPhoneLabel", nil);
+    self.mobilePhoneNumberLabel.text = NSLocalizedString(@"ContactDetailMobilePhoneLabel", nil);
+    self.addressLabel.text = NSLocalizedString(@"ContactDetailAddressLabel", nil);
+    [self.mapAddressButton setTitle:NSLocalizedString(@"ContactDetailMapAddressButton", nil) forState:UIControlStateNormal];
+    self.birthdayLabel.text = NSLocalizedString(@"ContactDetailBirthdayLabel", nil);
+    self.emailLabel.text = NSLocalizedString(@"ContactDetailEmailLabel", nil);
+    
     //Null out all the data labels so the user doesn't see a flash of default
     //or old data
-    self.nameLabel.text = @"";
-    self.companyNameLabel.text = @"";
+    self.name.text = @"";
+    self.companyName.text = @"";
     self.largeImage.image = nil;
     self.homePhoneNumber.text = @"";
     self.workPhoneNumber.text = @"";
@@ -60,8 +83,8 @@
     self.email.text = @"";
     
     //Set the labels for the data that we have
-    self.nameLabel.text = self.contactListResponse.name;
-    self.companyNameLabel.text = self.contactListResponse.company;
+    self.name.text = self.contactListResponse.name;
+    self.companyName.text = self.contactListResponse.company;
     self.homePhoneNumber.text = self.contactListResponse.phone.home;
     self.workPhoneNumber.text = self.contactListResponse.phone.work;
     self.mobilePhoneNumber.text = self.contactListResponse.phone.mobile;

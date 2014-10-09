@@ -278,17 +278,24 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addressLabel" destination="vgE-Jw-737" id="plr-sr-fS6"/>
                         <outlet property="addressLineOne" destination="4z9-7t-gUy" id="Phz-M3-H6H"/>
                         <outlet property="addressLineTwo" destination="hPX-tg-mdY" id="51F-kd-AyR"/>
                         <outlet property="birthday" destination="Kb7-rZ-DRm" id="tnf-8C-sPs"/>
-                        <outlet property="companyNameLabel" destination="40B-4O-EB0" id="eN5-jJ-m3M"/>
+                        <outlet property="birthdayLabel" destination="8Br-Hx-tNG" id="9Ia-5q-xkz"/>
+                        <outlet property="companyLabel" destination="JRP-Cv-Jcd" id="8IB-f6-sxN"/>
+                        <outlet property="companyName" destination="40B-4O-EB0" id="lfB-rM-7Gx"/>
                         <outlet property="email" destination="pdW-nC-rOc" id="ZNb-sv-kWZ"/>
+                        <outlet property="emailLabel" destination="i14-KW-dxG" id="hJj-mC-0eg"/>
                         <outlet property="homePhoneNumber" destination="ikc-D3-LJL" id="eCH-fO-NUJ"/>
                         <outlet property="homePhoneNumberLabel" destination="WTi-sb-ECs" id="1QQ-I2-SQK"/>
                         <outlet property="largeImage" destination="FF0-jZ-HLM" id="6gR-9q-4AG"/>
+                        <outlet property="mapAddressButton" destination="KLl-0C-TGW" id="0X9-dU-znD"/>
                         <outlet property="mobilePhoneNumber" destination="cvs-Uv-b6o" id="pQg-l3-pAP"/>
                         <outlet property="mobilePhoneNumberLabel" destination="2Wp-Mq-dz6" id="YPP-bi-AdX"/>
-                        <outlet property="nameLabel" destination="0lq-Tg-V3s" id="mg9-3x-aST"/>
+                        <outlet property="name" destination="0lq-Tg-V3s" id="bem-dj-10E"/>
+                        <outlet property="nameLabel" destination="qhf-Xh-8O6" id="UiU-1p-IiA"/>
+                        <outlet property="phoneLabel" destination="bR7-Qj-Jgy" id="a85-Nz-n6s"/>
                         <outlet property="workPhoneNumber" destination="YKK-3c-dMd" id="1en-Je-CvJ"/>
                         <outlet property="workPhoneNumberLabel" destination="P1J-rU-IbG" id="hZS-6V-Qy9"/>
                     </connections>

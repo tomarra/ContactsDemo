@@ -6,9 +6,44 @@
   Copyright (c) 2014 tomarra. All rights reserved.
 */
 
+//*********************************
 //TWAContactListTableViewController
+//*********************************
 /* The title shown in the nav bar of the contacts list */
 "ContactListTitleBar" = "Contacts";
 
 /* The title shown in the nav bar of the contacts list when getting data from the server */
 "ContactListLoadingTitleBar" = "Loading...";
+
+//*********************************
+//TWAContactDetailsViewController
+//*********************************
+/* Label for the name field */
+"ContactDetailNameLabel" = "Name";
+
+/* Label for the company field */
+"ContactDetailCompanyLabel" = "Company";
+
+/* Label for the phone fields */
+"ContactDetailPhoneLabel" = "Phone";
+
+/* Label for the home phone */
+"ContactDetailHomePhoneLabel" = "Home";
+
+/* Label for the home phone */
+"ContactDetailWorkPhoneLabel" = "Work";
+
+/* Label for the home phone */
+"ContactDetailMobilePhoneLabel" = "Mobile";
+
+/* Label for the address fields */
+"ContactDetailAddressLabel" = "Address";
+
+/* Label for the map address button */
+"ContactDetailMapAddressButton" = "Map";
+
+/* Label for the birthday field */
+"ContactDetailBirthdayLabel" = "Birthday";
+
+/* Label for the company field */
+"ContactDetailEmailLabel" = "Email";
