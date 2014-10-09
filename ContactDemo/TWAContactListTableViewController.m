@@ -24,21 +24,12 @@
 
 - (void)awakeFromNib
 {
-    //self = [super initWithStyle:UITableViewStylePlain];
-    NSLog(@"TWAContactListTableViewController - init");
-    
-    //if (self){
-        NSLog(@"TWAContactListTableViewController - init successful");
-        
-        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        _session = [NSURLSession sessionWithConfiguration:config
-                                                 delegate:nil
-                                            delegateQueue:nil];
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    _session = [NSURLSession sessionWithConfiguration:config
+                                             delegate:nil
+                                        delegateQueue:nil];
     
     _contactsArray = [[NSMutableArray alloc] init];
-    //}
-    
-    //return self;
 }
 
 - (void)viewDidLoad {

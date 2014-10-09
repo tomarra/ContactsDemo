@@ -120,28 +120,30 @@
                                                                               options:0
                                                                                 error:nil];
                         
-                        NSLog(@"%@", jsonObject);
-                        
                         NSString *imageUrl = jsonObject[@"largeImageURL"];
                         [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                             self.largeImage.image = [UIImage imageWithData:data];
                         }];
                         
-                        self.email.text = jsonObject[@"email"];
+                        
                         
                         NSDictionary *addressObject = jsonObject[@"address"];
-                        self.addressLineOne.text = addressObject[@"street"];
-                        self.addressLine2.text = [NSString stringWithFormat:@"%@ %@, %@", addressObject[@"city"], addressObject[@"state"], addressObject[@"zip"]];
-                        self.latitude = [addressObject[@"latitude"] doubleValue];
-                        self.longitude = [addressObject[@"longitude"] doubleValue];
                         
-                        if([jsonObject[@"favorite"] boolValue] == YES) {
-                            UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Favorite"]
-                                                                                               style:UIBarButtonItemStylePlain
-                                                                                              target:nil
-                                                                                              action:nil];
-                            self.navigationItem.rightBarButtonItem = favoriteButton;
-                        }
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.email.text = jsonObject[@"email"];
+                            self.addressLineOne.text = addressObject[@"street"];
+                            self.addressLine2.text = [NSString stringWithFormat:@"%@ %@, %@", addressObject[@"city"], addressObject[@"state"], addressObject[@"zip"]];
+                            self.latitude = [addressObject[@"latitude"] doubleValue];
+                            self.longitude = [addressObject[@"longitude"] doubleValue];
+                            
+                            if([jsonObject[@"favorite"] boolValue] == YES) {
+                                UIBarButtonItem *favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Favorite"]
+                                                                                                   style:UIBarButtonItemStylePlain
+                                                                                                  target:nil
+                                                                                                  action:nil];
+                                self.navigationItem.rightBarButtonItem = favoriteButton;
+                            }
+                        });
                     }];
     
     [dataTask resume];
