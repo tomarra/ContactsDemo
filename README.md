@@ -28,3 +28,6 @@ This application uses a API as a data source. This API is hosted and maintained 
    * Sometimes there is a ~3 second pause when starting up the application. It seems to be hung up on the API call for contacts. Not sure if this is an issue in the code or just the API endpoint not responding quickly everytime.
 * Content Store/Cache
    * Should implement some kind of client side store or cache so the application can be used online.
+* UI Cleanup
+   * It's a simple UI that works but it would be nice to have something that looks a bit nicer.
+   * Also doing something with a split view controller for the iPad would be a good idea.
