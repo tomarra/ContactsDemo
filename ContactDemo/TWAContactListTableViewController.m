@@ -101,10 +101,10 @@
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                         if (error){
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                                            message:@"You must be connected to the internet to use this app."
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GeneralErrorString", nil)
+                                                                            message:NSLocalizedString(@"GeneralNoConnectionMessage", nil)
                                                                            delegate:nil
-                                                                  cancelButtonTitle:@"OK"
+                                                                  cancelButtonTitle:NSLocalizedString(@"GeneralOKString", nil)
                                                                   otherButtonTitles:nil];
                             [alert show];
                             return;

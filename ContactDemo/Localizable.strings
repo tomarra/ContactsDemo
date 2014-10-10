@@ -7,6 +7,18 @@
 */
 
 //*********************************
+//General App Wide Strings
+//*********************************
+/* Generic error string. Mostly used for message box titles. */
+"GeneralErrorString" = "Error";
+
+/* Generic OK string. Mostly used for buttons. */
+"GeneralOKString" = "OK";
+
+/* Message shown when there is no Internet connection */
+"GeneralNoConnectionMessage" = "You must be connected to the Internet to use this application.";
+
+//*********************************
 //TWAContactListTableViewController
 //*********************************
 /* The title shown in the nav bar of the contacts list */
@@ -47,3 +59,7 @@
 
 /* Label for the company field */
 "ContactDetailEmailLabel" = "Email";
+
+/* Message to be shown to the user if their device does not support making a phone call */
+"DeviceDoesntSupportTelErrorMessage" = "You can not make a phone call as it is not supported by your device.";
+

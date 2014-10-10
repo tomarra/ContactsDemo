@@ -107,24 +107,6 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="555-555-5555" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikc-D3-LJL">
-                                                <rect key="frame" x="8" y="190" width="109" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="555-555-5555" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKK-3c-dMd">
-                                                <rect key="frame" x="8" y="219" width="109" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="555-555-5555" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvs-Uv-b6o">
-                                                <rect key="frame" x="8" y="248" width="109" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Line 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z9-7t-gUy">
                                                 <rect key="frame" x="8" y="301" width="115" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -212,52 +194,79 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abD-Fc-m5z">
+                                                <rect key="frame" x="8" y="186" width="97" height="30"/>
+                                                <state key="normal" title="555-555-5555">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="callPhoneNumberButtonClicked:" destination="qgR-cl-Jeu" eventType="touchUpInside" id="mUf-Fx-ctW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw8-aj-hOo">
+                                                <rect key="frame" x="8" y="244" width="97" height="30"/>
+                                                <state key="normal" title="555-555-5555">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="callPhoneNumberButtonClicked:" destination="qgR-cl-Jeu" eventType="touchUpInside" id="3uB-CT-byW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-Ee-Eff">
+                                                <rect key="frame" x="8" y="215" width="97" height="30"/>
+                                                <state key="normal" title="555-555-5555">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="callPhoneNumberButtonClicked:" destination="qgR-cl-Jeu" eventType="touchUpInside" id="Z8J-kc-KnC"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="40B-4O-EB0" firstAttribute="bottom" secondItem="FF0-jZ-HLM" secondAttribute="bottom" id="0mv-JN-4R6"/>
-                                            <constraint firstItem="vgE-Jw-737" firstAttribute="leading" secondItem="cvs-Uv-b6o" secondAttribute="leading" id="3yJ-xm-ojd"/>
                                             <constraint firstAttribute="height" constant="600" id="4F4-ok-JMX"/>
                                             <constraint firstItem="pdW-nC-rOc" firstAttribute="leading" secondItem="i14-KW-dxG" secondAttribute="leading" id="70F-nN-fIe"/>
-                                            <constraint firstItem="ikc-D3-LJL" firstAttribute="top" secondItem="bR7-Qj-Jgy" secondAttribute="bottom" constant="8" symbolic="YES" id="8HN-lj-OjU"/>
                                             <constraint firstItem="vgE-Jw-737" firstAttribute="leading" secondItem="hPX-tg-mdY" secondAttribute="leading" id="8hf-1e-PUd"/>
-                                            <constraint firstItem="cvs-Uv-b6o" firstAttribute="leading" secondItem="YKK-3c-dMd" secondAttribute="leading" id="9gK-5Q-8hu"/>
                                             <constraint firstAttribute="trailing" secondItem="KLl-0C-TGW" secondAttribute="trailing" constant="8" id="9lx-Ld-AcV"/>
                                             <constraint firstItem="P1J-rU-IbG" firstAttribute="trailing" secondItem="9j9-rq-yig" secondAttribute="trailingMargin" id="AYz-p3-txo"/>
                                             <constraint firstAttribute="bottom" secondItem="Kb7-rZ-DRm" secondAttribute="bottom" constant="196" id="CCL-sb-Vjk"/>
                                             <constraint firstAttribute="bottom" secondItem="pdW-nC-rOc" secondAttribute="bottom" constant="143" id="D5r-ul-cEo"/>
                                             <constraint firstItem="pdW-nC-rOc" firstAttribute="leading" secondItem="Kb7-rZ-DRm" secondAttribute="leading" id="Dk4-nS-ZtC"/>
+                                            <constraint firstItem="Fw8-aj-hOo" firstAttribute="top" secondItem="abD-Fc-m5z" secondAttribute="bottom" constant="28" id="Dv2-Cr-W9q"/>
                                             <constraint firstItem="Kb7-rZ-DRm" firstAttribute="leading" secondItem="hPX-tg-mdY" secondAttribute="leading" id="FZP-oJ-GFY"/>
-                                            <constraint firstItem="cvs-Uv-b6o" firstAttribute="leading" secondItem="bR7-Qj-Jgy" secondAttribute="leading" id="GUZ-2o-aIG"/>
                                             <constraint firstItem="qhf-Xh-8O6" firstAttribute="top" secondItem="FF0-jZ-HLM" secondAttribute="top" id="HCV-Zy-NeQ"/>
+                                            <constraint firstItem="bR7-Qj-Jgy" firstAttribute="leading" secondItem="Mer-Ee-Eff" secondAttribute="leading" id="HuI-bL-NwS"/>
                                             <constraint firstItem="4z9-7t-gUy" firstAttribute="top" secondItem="vgE-Jw-737" secondAttribute="bottom" constant="8" symbolic="YES" id="Itj-ra-zni"/>
                                             <constraint firstItem="40B-4O-EB0" firstAttribute="top" secondItem="JRP-Cv-Jcd" secondAttribute="bottom" constant="8" symbolic="YES" id="KJJ-v6-lqQ"/>
                                             <constraint firstItem="JRP-Cv-Jcd" firstAttribute="leading" secondItem="0lq-Tg-V3s" secondAttribute="leading" id="KpL-Dj-Otw"/>
                                             <constraint firstAttribute="trailing" secondItem="40B-4O-EB0" secondAttribute="trailing" constant="8" id="MG3-qs-aoj"/>
-                                            <constraint firstItem="P1J-rU-IbG" firstAttribute="baseline" secondItem="YKK-3c-dMd" secondAttribute="baseline" id="Mlq-FJ-6hB"/>
+                                            <constraint firstItem="Mer-Ee-Eff" firstAttribute="leading" secondItem="vgE-Jw-737" secondAttribute="leading" id="NeX-Lw-pON"/>
                                             <constraint firstItem="bR7-Qj-Jgy" firstAttribute="top" secondItem="FF0-jZ-HLM" secondAttribute="bottom" constant="8" symbolic="YES" id="Np7-wi-a6q"/>
                                             <constraint firstItem="bR7-Qj-Jgy" firstAttribute="leading" secondItem="FF0-jZ-HLM" secondAttribute="leading" id="Onh-5g-cnH"/>
                                             <constraint firstItem="Kb7-rZ-DRm" firstAttribute="leading" secondItem="8Br-Hx-tNG" secondAttribute="leading" id="OvO-aR-bIT"/>
+                                            <constraint firstItem="Mer-Ee-Eff" firstAttribute="baseline" secondItem="P1J-rU-IbG" secondAttribute="baseline" id="QwJ-z1-cKZ"/>
                                             <constraint firstItem="qhf-Xh-8O6" firstAttribute="leading" secondItem="0lq-Tg-V3s" secondAttribute="leading" id="Rai-ok-7Jg"/>
                                             <constraint firstItem="FF0-jZ-HLM" firstAttribute="leading" secondItem="9j9-rq-yig" secondAttribute="leading" constant="8" id="SUv-cv-2w3"/>
-                                            <constraint firstItem="cvs-Uv-b6o" firstAttribute="baseline" secondItem="2Wp-Mq-dz6" secondAttribute="baseline" id="TRr-ph-B8a"/>
                                             <constraint firstItem="pdW-nC-rOc" firstAttribute="top" secondItem="i14-KW-dxG" secondAttribute="bottom" constant="8" symbolic="YES" id="V76-vz-CkL"/>
                                             <constraint firstItem="2Wp-Mq-dz6" firstAttribute="top" secondItem="P1J-rU-IbG" secondAttribute="bottom" constant="8" symbolic="YES" id="Yez-A0-qwP"/>
                                             <constraint firstItem="Kb7-rZ-DRm" firstAttribute="top" secondItem="8Br-Hx-tNG" secondAttribute="bottom" constant="8" symbolic="YES" id="cGT-GJ-Sou"/>
-                                            <constraint firstItem="cvs-Uv-b6o" firstAttribute="leading" secondItem="ikc-D3-LJL" secondAttribute="leading" id="cLd-Le-e8R"/>
+                                            <constraint firstItem="bR7-Qj-Jgy" firstAttribute="leading" secondItem="Fw8-aj-hOo" secondAttribute="leading" id="cIT-VL-paf"/>
                                             <constraint firstItem="KLl-0C-TGW" firstAttribute="top" secondItem="4z9-7t-gUy" secondAttribute="top" id="d4h-Fm-nkj"/>
                                             <constraint firstItem="hPX-tg-mdY" firstAttribute="top" secondItem="4z9-7t-gUy" secondAttribute="bottom" constant="8" symbolic="YES" id="eMK-CT-Iib"/>
                                             <constraint firstItem="2Wp-Mq-dz6" firstAttribute="trailing" secondItem="WTi-sb-ECs" secondAttribute="trailing" id="eeY-Ci-ecB"/>
                                             <constraint firstItem="40B-4O-EB0" firstAttribute="leading" secondItem="JRP-Cv-Jcd" secondAttribute="leading" id="fwp-wZ-ckx"/>
                                             <constraint firstItem="P1J-rU-IbG" firstAttribute="top" secondItem="WTi-sb-ECs" secondAttribute="bottom" constant="8" symbolic="YES" id="iJt-Lb-1mQ"/>
                                             <constraint firstItem="0lq-Tg-V3s" firstAttribute="top" secondItem="qhf-Xh-8O6" secondAttribute="bottom" constant="8" symbolic="YES" id="im6-2z-GEg"/>
+                                            <constraint firstItem="abD-Fc-m5z" firstAttribute="baseline" secondItem="WTi-sb-ECs" secondAttribute="baseline" id="mRs-N5-Qa2"/>
                                             <constraint firstItem="qhf-Xh-8O6" firstAttribute="leading" secondItem="FF0-jZ-HLM" secondAttribute="trailing" constant="8" symbolic="YES" id="n2o-dn-Yra"/>
                                             <constraint firstAttribute="trailing" secondItem="0lq-Tg-V3s" secondAttribute="trailing" constant="8" id="nat-20-daA"/>
-                                            <constraint firstItem="vgE-Jw-737" firstAttribute="top" secondItem="cvs-Uv-b6o" secondAttribute="bottom" constant="8" symbolic="YES" id="o9e-8f-Sh8"/>
                                             <constraint firstItem="P1J-rU-IbG" firstAttribute="top" secondItem="9j9-rq-yig" secondAttribute="top" constant="219" id="qvO-fq-yb9"/>
+                                            <constraint firstItem="vgE-Jw-737" firstAttribute="top" secondItem="Mer-Ee-Eff" secondAttribute="bottom" constant="32" id="t1s-xW-p9e"/>
                                             <constraint firstItem="vgE-Jw-737" firstAttribute="leading" secondItem="4z9-7t-gUy" secondAttribute="leading" id="v75-f0-qjC"/>
                                             <constraint firstItem="FF0-jZ-HLM" firstAttribute="top" secondItem="9j9-rq-yig" secondAttribute="top" constant="8" id="vTt-LP-FiJ"/>
                                             <constraint firstItem="2Wp-Mq-dz6" firstAttribute="trailing" secondItem="P1J-rU-IbG" secondAttribute="trailing" id="yck-qK-FOe"/>
+                                            <constraint firstItem="bR7-Qj-Jgy" firstAttribute="leading" secondItem="abD-Fc-m5z" secondAttribute="leading" id="yg4-HT-PAw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -289,16 +298,16 @@
                         <outlet property="companyName" destination="40B-4O-EB0" id="lfB-rM-7Gx"/>
                         <outlet property="email" destination="pdW-nC-rOc" id="ZNb-sv-kWZ"/>
                         <outlet property="emailLabel" destination="i14-KW-dxG" id="hJj-mC-0eg"/>
-                        <outlet property="homePhoneNumber" destination="ikc-D3-LJL" id="eCH-fO-NUJ"/>
+                        <outlet property="homePhoneButton" destination="abD-Fc-m5z" id="TC9-Qz-yjR"/>
                         <outlet property="homePhoneNumberLabel" destination="WTi-sb-ECs" id="1QQ-I2-SQK"/>
                         <outlet property="largeImage" destination="FF0-jZ-HLM" id="6gR-9q-4AG"/>
                         <outlet property="mapAddressButton" destination="KLl-0C-TGW" id="0X9-dU-znD"/>
-                        <outlet property="mobilePhoneNumber" destination="cvs-Uv-b6o" id="pQg-l3-pAP"/>
+                        <outlet property="mobilePhoneButton" destination="Fw8-aj-hOo" id="Gxt-bu-NCU"/>
                         <outlet property="mobilePhoneNumberLabel" destination="2Wp-Mq-dz6" id="YPP-bi-AdX"/>
                         <outlet property="name" destination="0lq-Tg-V3s" id="bem-dj-10E"/>
                         <outlet property="nameLabel" destination="qhf-Xh-8O6" id="UiU-1p-IiA"/>
                         <outlet property="phoneLabel" destination="bR7-Qj-Jgy" id="a85-Nz-n6s"/>
-                        <outlet property="workPhoneNumber" destination="YKK-3c-dMd" id="1en-Je-CvJ"/>
+                        <outlet property="workPhoneButton" destination="Mer-Ee-Eff" id="Gxm-GO-XM8"/>
                         <outlet property="workPhoneNumberLabel" destination="P1J-rU-IbG" id="hZS-6V-Qy9"/>
                     </connections>
                 </viewController>

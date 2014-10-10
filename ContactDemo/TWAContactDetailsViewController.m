@@ -32,9 +32,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *companyName;
 @property (weak, nonatomic) IBOutlet UIImageView *largeImage;
-@property (weak, nonatomic) IBOutlet UILabel *homePhoneNumber;
-@property (weak, nonatomic) IBOutlet UILabel *workPhoneNumber;
-@property (weak, nonatomic) IBOutlet UILabel *mobilePhoneNumber;
+@property (weak, nonatomic) IBOutlet UIButton *homePhoneButton;
+@property (weak, nonatomic) IBOutlet UIButton *workPhoneButton;
+@property (weak, nonatomic) IBOutlet UIButton *mobilePhoneButton;
 @property (weak, nonatomic) IBOutlet UILabel *addressLineOne;
 @property (weak, nonatomic) IBOutlet UILabel *addressLineTwo;
 @property (weak, nonatomic) IBOutlet UILabel *birthday;
@@ -74,9 +74,9 @@
     self.name.text = @"";
     self.companyName.text = @"";
     self.largeImage.image = nil;
-    self.homePhoneNumber.text = @"";
-    self.workPhoneNumber.text = @"";
-    self.mobilePhoneNumber.text = @"";
+    [self.homePhoneButton setTitle:@"" forState:UIControlStateNormal];
+    [self.workPhoneButton setTitle:@"" forState:UIControlStateNormal];
+    [self.mobilePhoneButton setTitle:@"" forState:UIControlStateNormal];
     self.addressLineOne.text = @"";
     self.addressLineTwo.text = @"";
     self.birthday.text = @"";
@@ -85,9 +85,9 @@
     //Set the labels for the data that we have
     self.name.text = self.contactListResponse.name;
     self.companyName.text = self.contactListResponse.company;
-    self.homePhoneNumber.text = self.contactListResponse.phone.home;
-    self.workPhoneNumber.text = self.contactListResponse.phone.work;
-    self.mobilePhoneNumber.text = self.contactListResponse.phone.mobile;
+    [self.homePhoneButton setTitle:self.contactListResponse.phone.home forState:UIControlStateNormal];
+    [self.workPhoneButton setTitle:self.contactListResponse.phone.work forState:UIControlStateNormal];
+    [self.mobilePhoneButton setTitle:self.contactListResponse.phone.mobile forState:UIControlStateNormal];
     
     //Make a simple but nice looking birthday string to be shown
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -101,6 +101,11 @@
     NSString *nameForTitleBar = [NSString stringWithFormat:@"%@ %c", nameChunks[0], [nameChunks[1] characterAtIndex:0]];
     self.navigationItem.title = nameForTitleBar;
     
+    //TODO: Clean this up so that if there is no mobile number the content below moves up the view
+    if([self.contactListResponse.phone.mobile  isEqual: @""]) {
+        self.mobilePhoneNumberLabel.hidden = YES;
+    }
+    
     [self getContactDetailsFromServer];
 }
 
@@ -111,12 +116,40 @@
 #pragma mark - Actions
 
 - (IBAction)mapButtonClicked:(id)sender {
-    
     MKPlacemark *pl = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longitude)
                                             addressDictionary:nil];
     MKMapItem *mi = [[MKMapItem alloc] initWithPlacemark:pl];
     mi.name = self.navigationItem.title;
     [mi openInMapsWithLaunchOptions:nil];
+}
+
+- (IBAction)callPhoneNumberButtonClicked:(id)sender {
+    
+    //Need to make sure we have a button so we can get the phone number from
+    //the button text
+    if (![sender isKindOfClass:[UIButton class]])
+        return;
+    
+    NSString *phoneNumber = [(UIButton *)sender currentTitle];
+    //Add a +1 to the phone numbers to make sure they always work
+    //TODO: Fix this in order to support countries outside the US
+    if(![phoneNumber hasPrefix:@"+1"]) {
+        phoneNumber = [NSString stringWithFormat:@"+1%@", phoneNumber];
+    }
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"tel:%@",phoneNumber]];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+        [[UIApplication sharedApplication] openURL:phoneUrl];
+    } else
+    {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GeneralErrorString", nil)
+                                                               message:NSLocalizedString(@"DeviceDoesntSupportTelErrorMessage", nil)
+                                                              delegate:nil
+                                                     cancelButtonTitle:NSLocalizedString(@"GeneralOKString", nil)
+                                                     otherButtonTitles:nil];
+        [warningAlert show];
+    }
+
 }
 
 #pragma mark - API Call
@@ -133,7 +166,12 @@
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                         if (error){
-                            NSLog(@"General Error: %@", error.description);
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GeneralErrorString", nil)
+                                                                            message:NSLocalizedString(@"GeneralNoConnectionMessage", nil)
+                                                                           delegate:nil
+                                                                  cancelButtonTitle:NSLocalizedString(@"GeneralOKString", nil)
+                                                                  otherButtonTitles:nil];
+                            [alert show];
                             return;
                         }
                         
