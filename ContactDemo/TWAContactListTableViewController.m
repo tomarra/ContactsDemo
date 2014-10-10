@@ -93,7 +93,7 @@
     //just to make things a bit eaiser
     self.tableView.allowsSelection = NO;
     
-    NSString *requestString = @"http://solstice.applauncher.com/external/contacts.json";
+    NSString *requestString = [NSString stringWithFormat:@"%@%@", API_ENDPOINT_BASE, API_ENDPOINT_CONTACTS];
     NSURL *url = [NSURL URLWithString:requestString];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"GET"];
@@ -101,7 +101,12 @@
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                         if (error){
-                            NSLog(@"General Error: %@", error.description);
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                                            message:@"You must be connected to the internet to use this app."
+                                                                           delegate:nil
+                                                                  cancelButtonTitle:@"OK"
+                                                                  otherButtonTitles:nil];
+                            [alert show];
                             return;
                         }
                         
@@ -124,6 +129,7 @@
 
 - (void) updateViewWithData:(NSArray *)jsonDataObject
 {
+    //Build up all the objects we need from the JSON Repsonse
     for (NSDictionary *d in jsonDataObject)
     {
         TWAContactListResponse *clr = [[TWAContactListResponse alloc] init];

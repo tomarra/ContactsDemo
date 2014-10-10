@@ -18,6 +18,7 @@
 		D1D2BBA819E5E2B300053A3C /* TWAContactListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2BBA519E5E2B300053A3C /* TWAContactListResponse.m */; };
 		D1D2BBA919E5E2B300053A3C /* TWAContactPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2BBA719E5E2B300053A3C /* TWAContactPhone.m */; };
 		D1D2BBB119E5F64A00053A3C /* TWAContactListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2BBAF19E5F64A00053A3C /* TWAContactListTableViewCell.m */; };
+		D1EB4BE619E6DA2D003509E3 /* TWAConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EB4BE519E6DA2D003509E3 /* TWAConstants.m */; };
 		D1FE5F0519E6BE010061EDD8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1FE5F0419E6BE010061EDD8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D15FE41719E76CDD00B4F70D /* ContactDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContactDemo-Prefix.pch"; sourceTree = "<group>"; };
 		D1D2BB6D19E5E06700053A3C /* ContactDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D2BB7119E5E06700053A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D2BB7219E5E06700053A3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +55,8 @@
 		D1D2BBA719E5E2B300053A3C /* TWAContactPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAContactPhone.m; sourceTree = "<group>"; };
 		D1D2BBAE19E5F64A00053A3C /* TWAContactListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWAContactListTableViewCell.h; sourceTree = "<group>"; };
 		D1D2BBAF19E5F64A00053A3C /* TWAContactListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAContactListTableViewCell.m; sourceTree = "<group>"; };
+		D1EB4BE419E6DA2D003509E3 /* TWAConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWAConstants.h; sourceTree = "<group>"; };
+		D1EB4BE519E6DA2D003509E3 /* TWAConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWAConstants.m; sourceTree = "<group>"; };
 		D1FE5F0419E6BE010061EDD8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,8 @@
 				D1D2BB9D19E5E17F00053A3C /* Models */,
 				D1D2BB9C19E5E16F00053A3C /* View Controllers */,
 				D1D2BBAA19E5F5E900053A3C /* Views */,
+				D1EB4BE419E6DA2D003509E3 /* TWAConstants.h */,
+				D1EB4BE519E6DA2D003509E3 /* TWAConstants.m */,
 				D1D2BB7419E5E06700053A3C /* AppDelegate.h */,
 				D1D2BB7519E5E06700053A3C /* AppDelegate.m */,
 				D1D2BB7A19E5E06700053A3C /* Main.storyboard */,
@@ -114,6 +120,7 @@
 				D1D2BB7119E5E06700053A3C /* Info.plist */,
 				D1D2BB7219E5E06700053A3C /* main.m */,
 				D1FE5F0419E6BE010061EDD8 /* Localizable.strings */,
+				D15FE41719E76CDD00B4F70D /* ContactDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -274,6 +281,7 @@
 			files = (
 				D1D2BBA919E5E2B300053A3C /* TWAContactPhone.m in Sources */,
 				D1D2BB7619E5E06700053A3C /* AppDelegate.m in Sources */,
+				D1EB4BE619E6DA2D003509E3 /* TWAConstants.m in Sources */,
 				D1D2BBA819E5E2B300053A3C /* TWAContactListResponse.m in Sources */,
 				D1D2BBA319E5E24E00053A3C /* TWAContactListTableViewController.m in Sources */,
 				D1D2BBB119E5F64A00053A3C /* TWAContactListTableViewCell.m in Sources */,
@@ -402,6 +410,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContactDemo/ContactDemo-Prefix.pch";
 				INFOPLIST_FILE = ContactDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -413,6 +423,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContactDemo/ContactDemo-Prefix.pch";
 				INFOPLIST_FILE = ContactDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
