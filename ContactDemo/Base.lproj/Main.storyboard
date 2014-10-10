@@ -229,6 +229,9 @@
                                                 <state key="normal" title="http://www.testwebsite.com">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="websiteButtonClicked:" destination="qgR-cl-Jeu" eventType="touchUpInside" id="sMO-r5-iVg"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A04-sv-y7Q">
                                                 <rect key="frame" x="8" y="474" width="48" height="16"/>
@@ -326,6 +329,8 @@
                         <outlet property="name" destination="0lq-Tg-V3s" id="bem-dj-10E"/>
                         <outlet property="nameLabel" destination="qhf-Xh-8O6" id="UiU-1p-IiA"/>
                         <outlet property="phoneLabel" destination="bR7-Qj-Jgy" id="a85-Nz-n6s"/>
+                        <outlet property="websiteButton" destination="rjJ-qD-gi9" id="ig2-Fe-ihG"/>
+                        <outlet property="websiteLabel" destination="A04-sv-y7Q" id="2br-fZ-uVB"/>
                         <outlet property="workPhoneButton" destination="Mer-Ee-Eff" id="Gxm-GO-XM8"/>
                         <outlet property="workPhoneNumberLabel" destination="P1J-rU-IbG" id="hZS-6V-Qy9"/>
                     </connections>

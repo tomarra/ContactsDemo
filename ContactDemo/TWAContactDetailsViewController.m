@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mapAddressButton;
 @property (weak, nonatomic) IBOutlet UILabel *birthdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *websiteLabel;
 
 #pragma mark - Data View Items
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -40,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLineTwo;
 @property (weak, nonatomic) IBOutlet UILabel *birthday;
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
+@property (weak, nonatomic) IBOutlet UIButton *websiteButton;
 
 @end
 
@@ -69,6 +71,7 @@
     [self.mapAddressButton setTitle:NSLocalizedString(@"ContactDetailMapAddressButton", nil) forState:UIControlStateNormal];
     self.birthdayLabel.text = NSLocalizedString(@"ContactDetailBirthdayLabel", nil);
     self.emailLabel.text = NSLocalizedString(@"ContactDetailEmailLabel", nil);
+    self.websiteLabel.text = NSLocalizedString(@"ContactDetailWebsiteLabel", nil);
     
     //Null out all the data labels so the user doesn't see a flash of default
     //or old data
@@ -82,6 +85,7 @@
     self.addressLineTwo.text = @"";
     self.birthday.text = @"";
     [self.emailButton setTitle:@"" forState:UIControlStateNormal];
+    [self.websiteButton setTitle:@"" forState:UIControlStateNormal];
     
     //Set the labels for the data that we have
     self.name.text = self.contactListResponse.name;
@@ -181,6 +185,19 @@
     }
 }
 
+- (IBAction)websiteButtonClicked:(id)sender {
+    //Need to make sure we have a button so we can get the website from
+    //the button text
+    if (![sender isKindOfClass:[UIButton class]])
+        return;
+    
+    NSString *url = [(UIButton *)sender currentTitle];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+#pragma mark - MailComposeViewControllerDelegate Methods
+
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error;
@@ -189,6 +206,8 @@
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 #pragma mark - API Call
 
@@ -242,6 +261,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.emailButton setTitle:jsonDataObject[@"email"] forState:UIControlStateNormal];
+        [self.websiteButton setTitle:jsonDataObject[@"website"] forState:UIControlStateNormal];
         self.addressLineOne.text = addressObject[@"street"];
         self.addressLineTwo.text = [NSString stringWithFormat:@"%@ %@, %@", addressObject[@"city"], addressObject[@"state"], addressObject[@"zip"]];
         self.latitude = [addressObject[@"latitude"] doubleValue];
