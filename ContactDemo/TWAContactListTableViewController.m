@@ -49,6 +49,7 @@
 #pragma mark - Table View Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    //No sections in this app, just the main list of contacts
     return 1;
 }
 
@@ -79,6 +80,7 @@
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     NSUInteger selectedRow = path.row;
     
+    //Should be the only segue buts lets make sure and make sure that we have a valid contact
     if([[segue identifier]  isEqual: @"showContactDetail"] && self.contactsArray[selectedRow]) {
         TWAContactDetailsViewController *vc = [segue destinationViewController];
         vc.contactListResponse = self.contactsArray[selectedRow];
@@ -124,7 +126,6 @@
                     }];
     
     [dataTask resume];
-    
 }
 
 - (void) updateViewWithData:(NSArray *)jsonDataObject
@@ -158,6 +159,5 @@
     });
 
 }
-
 
 @end

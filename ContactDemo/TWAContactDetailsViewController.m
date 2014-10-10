@@ -121,6 +121,7 @@
 #pragma mark - Actions
 
 - (IBAction)mapButtonClicked:(id)sender {
+    //Using the lat/long of the contacts detail API call we can plot the point on a map
     MKPlacemark *pl = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longitude)
                                             addressDictionary:nil];
     MKMapItem *mi = [[MKMapItem alloc] initWithPlacemark:pl];
@@ -129,7 +130,6 @@
 }
 
 - (IBAction)callPhoneNumberButtonClicked:(id)sender {
-    
     //Need to make sure we have a button so we can get the phone number from
     //the button text
     if (![sender isKindOfClass:[UIButton class]])
@@ -202,6 +202,8 @@
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error;
 {
+    //Not much to do here. Just make sure that the view controller does away
+    //and the user ends back in the application
     if (result == MFMailComposeResultSent) {
     }
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -217,7 +219,6 @@
     NSURL *url = [NSURL URLWithString:requestString];
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
-    
     [req setHTTPMethod:@"GET"];
     
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req
@@ -259,6 +260,7 @@
 
     NSDictionary *addressObject = jsonDataObject[@"address"];
     
+    //Put any UI updates in the dispatch so we can make safe updates to the UI
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.emailButton setTitle:jsonDataObject[@"email"] forState:UIControlStateNormal];
         [self.websiteButton setTitle:jsonDataObject[@"website"] forState:UIControlStateNormal];
