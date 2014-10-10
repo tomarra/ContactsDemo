@@ -7,9 +7,10 @@
 //
 
 #import "TWAContactDetailsViewController.h"
+#import <MessageUI/MFMailComposeViewController.h>
 @import MapKit;
 
-@interface TWAContactDetailsViewController ()
+@interface TWAContactDetailsViewController () <MFMailComposeViewControllerDelegate>
 
 #pragma mark - Variables
 @property (nonatomic, strong) NSURLSession *session;
@@ -38,7 +39,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLineOne;
 @property (weak, nonatomic) IBOutlet UILabel *addressLineTwo;
 @property (weak, nonatomic) IBOutlet UILabel *birthday;
-@property (weak, nonatomic) IBOutlet UILabel *email;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
 
 @end
 
@@ -80,7 +81,7 @@
     self.addressLineOne.text = @"";
     self.addressLineTwo.text = @"";
     self.birthday.text = @"";
-    self.email.text = @"";
+    [self.emailButton setTitle:@"" forState:UIControlStateNormal];
     
     //Set the labels for the data that we have
     self.name.text = self.contactListResponse.name;
@@ -152,6 +153,43 @@
 
 }
 
+- (IBAction)createEmailButtonClicked:(id)sender {
+    if ([MFMailComposeViewController canSendMail]) {
+        //Need to make sure we have a button so we can get the email from
+        //the button text
+        if (![sender isKindOfClass:[UIButton class]])
+            return;
+        
+        NSString *emailAddress = [(UIButton *)sender currentTitle];
+        
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        NSArray *usersTo = [NSArray arrayWithObjects: emailAddress, nil];
+        //TODO Investigate why this works on device but not on the simulator
+        [controller setToRecipients:usersTo];
+        if (controller) {
+            [self presentViewController:controller animated:YES completion:nil];
+        }
+    }
+    else {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"GeneralErrorString", nil)
+                                                               message:NSLocalizedString(@"DeviceDoesntSupportEmailMessage", nil)
+                                                              delegate:nil
+                                                     cancelButtonTitle:NSLocalizedString(@"GeneralOKString", nil)
+                                                     otherButtonTitles:nil];
+        [warningAlert show];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - API Call
 
 - (void) getContactDetailsFromServer
@@ -203,7 +241,7 @@
     NSDictionary *addressObject = jsonDataObject[@"address"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.email.text = jsonDataObject[@"email"];
+        [self.emailButton setTitle:jsonDataObject[@"email"] forState:UIControlStateNormal];
         self.addressLineOne.text = addressObject[@"street"];
         self.addressLineTwo.text = [NSString stringWithFormat:@"%@ %@, %@", addressObject[@"city"], addressObject[@"state"], addressObject[@"zip"]];
         self.latitude = [addressObject[@"latitude"] doubleValue];

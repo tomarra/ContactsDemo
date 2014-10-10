@@ -63,3 +63,6 @@
 /* Message to be shown to the user if their device does not support making a phone call */
 "DeviceDoesntSupportTelErrorMessage" = "You can not make a phone call as it is not supported by your device.";
 
+/* Message to be shown to the user if their device does not support emailing */
+"DeviceDoesntSupportEmailMessage" = "You can not send an email as it is either not setup or not supported by your device";
+
